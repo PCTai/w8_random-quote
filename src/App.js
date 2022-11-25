@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h3 className='advice'>{advice}</h3>
-      <button className='btn' onClick={getAdvice}>Get me advice</button>
+      <button className='btn' onClick={getAdvice}>Give me advice!</button>
     </div>
   );
 }
