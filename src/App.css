@@ -44,6 +44,40 @@ body{
   background-color: #2a4d69;
   color: #f5f5f5;
 }
+.loading{
+  
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+.loading-item{
+  margin: 0 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #282c34;
+  animation: updown 0.6s linear alternate infinite;
+}
+.loading-item:first-child{
+  animation-delay: -0.3s;
+
+}
+.loading-item:last-child{
+  animation-delay: 0.3s;
+
+}
+
+@keyframes updown {
+  from{
+    transform: translateY(0);
+  }
+  to{    
+    transform: translateY(8px);
+
+  }
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

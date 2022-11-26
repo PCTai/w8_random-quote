@@ -6,6 +6,7 @@ import { url } from './constants'
 
 function App() {
   const [advice, setAdvice] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const debounceDropDown = useCallback(debounce(() => getAdvice(), 500), []);
 
   const getAdvice = async () => {
@@ -15,6 +16,7 @@ function App() {
       }).then(res => {
         console.log(res.slip.advice);
         setAdvice(res.slip.advice);
+        setIsLoading(false);
         return res.slip.advice;
       });
 
@@ -25,6 +27,7 @@ function App() {
 
   const handleGetAdvice =( ) =>{
     // getAdvice();
+    setIsLoading(true);
     debounceDropDown();
 
   }
@@ -34,7 +37,11 @@ function App() {
 
   return (
     <div className="App">
-      <h3 className='advice'>{advice}</h3>
+      {isLoading ? (<h3 className='loading'>
+        <div className='loading-item'></div>
+        <div className='loading-item'></div>
+        <div className='loading-item'></div>
+      </h3>) : <h3 className='advice'>{advice}</h3>}
       <button className='btn' onClick={handleGetAdvice}>Give me advice!</button>
     </div>
   );
